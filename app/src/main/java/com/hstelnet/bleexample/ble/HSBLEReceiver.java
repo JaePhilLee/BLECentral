@@ -52,7 +52,7 @@ public class HSBLEReceiver extends BroadcastReceiver {
 				Log.e(LOG_TAG, "ACTION_DATA_WRITE : From " + intent.getStringExtra(HSBLEService.EXTRA_UUID) +
 						"\n\t Data : " + intent.getStringExtra(HSBLEService.EXTRA_DATA));
 
-				global.hsbleService.close();
+//				global.hsbleService.close();
 				break;
 			case HSBLEService.ACTION_DATA_CHANGED:
 				Log.e(LOG_TAG, "ACTION_DATA_CHANGED : From " + intent.getStringExtra(HSBLEService.EXTRA_UUID) +

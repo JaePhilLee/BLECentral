@@ -209,7 +209,7 @@ public class HSBLEService extends Service {
 				} else if ((charaProp & BluetoothGattCharacteristic.PROPERTY_NOTIFY) > 0) {
 					logStr += " [PROPERTY_NOTIFY]";
 					notifyCharacteristic = characteristic;
-					setCharacteristicNotification(characteristic, true);
+					setCharacteristicNotification(characteristic, true); //Notify해주어야 데이터를 수신할 수 있음.
 				}
 
 				logStr += "\n";
@@ -221,6 +221,7 @@ public class HSBLEService extends Service {
 
 	public void writeCharacteristic(String data) {
 		if (writeCharacteristic != null) {
+			Log.e("BLE", "writeCharacteristic() : " + data);
 			writeCharacteristic.setValue(data);
 			writeCharacteristic.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);
 			mBluetoothGatt.writeCharacteristic(writeCharacteristic);

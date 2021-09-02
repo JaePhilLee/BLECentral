@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 //							break;
 //						}
 //					}
-//					Log.e("onScanResult", logStr);
+					Log.e("onScanResult", logStr);
 //
 //					//Test Code : Connect
 //					if (uuidStr != null && dataHexStr != null) {
@@ -169,7 +169,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 					//=========================
-					if (result.getDevice().getName() != null && result.getDevice().getName().contains("Galaxy")) {
+					if (result.getDevice().getName() != null && result.getDevice().getName().contains("BT")) {
+						Log.e("BLE", "Find BLE : " + result.getDevice().getName());
 						global.hsbleService.stopScan();
 						global.hsbleService.connect(result.getDevice());
 						/**     Galaxy S8 [BLE Peripheral Simulator App]
